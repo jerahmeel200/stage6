@@ -52,20 +52,24 @@ function Videos() {
       <div className="w-full min-h-screen overflow-y-hidden">
         <div className="w-full min-h-full mb-8 flex flex-col justify-between">
           <Navbar />
-          <div className="w-full px-4 lg:px-12 py-5 flex flex-col lg:flex-row md:flex-col sm:flex-col items-center lg:items-start justify-between">
-            <div className="w-full lg:w-auto flex flex-col items-start justify-start">
-              <h1 className="text-2xl lg:text-3xl sm:text-sm font-bold mb-3">
+
+          <div className="w-full px-4 md:px-8 lg:px-16 py-5 flex flex-col md:flex-row items-start justify-between">
+            <div className="w-full md:w-auto flex flex-col items-start justify-start">
+              <h1 className="text-dark-100 ppB text-2xl md:text-3xl font-bold lg:text-4xl">
                 Hello, John Mark
               </h1>
-              <p className="text-gray-400 text-xs sm:text-sm">
+              <p className="text-white-400 text-xs md:text-sm ppReg">
                 Here are your recorded videos
               </p>
             </div>
-            <div className="w-full max-w-xs lg:max-w-[250px] bg-white px-2 lg:px-4 flex items-center justify-center border rounded-lg mt-3 lg:mt-0">
-              <FiSearch size={15} color="#ccc" />
+            <div
+              style={{ border: '1px solid gray' }}
+              className="w-full md:max-w-[250px]   border-gray-300 px-4 md:px-6 lg:px-8 flex items-center justify-start rounded-lg mt-4 md:mt-0"
+            >
+              <FiSearch size={15} color="gray" />
               <input
                 type="text"
-                className="w-full py-2 bg-transparent outline-none border-none px-2 text-sm text-gray-400"
+                className="w-full py-3 bg-transparent  border-gray-300 outline-none border-none px-3 text-xs md:text-sm text-white-400 font-ppReg"
                 placeholder="Search for a video"
               />
             </div>
@@ -81,11 +85,11 @@ function Videos() {
             <p className="text-gray-600 font-medium text-sm lg:text-base">
               Recent files
             </p>
-            <div className="w-full flex items-center justify-start flex-wrap gap-4 lg:gap-7">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {details.map((item, index) => (
                 <div
                   key={index}
-                  className="w-full lg:w-1/2 p-2 md:p-4 lg:p-2 xl:p-4 max-w-[500px] max-h-[250px] lg:max-h-[300px] border border-gray-200 rounded-md"
+                  className="max-w-[500px] p-4 border border-gray-200 rounded-md"
                 >
                   <video
                     controls
@@ -93,7 +97,7 @@ function Videos() {
                   >
                     <source src={item.src} type="video/mp4" />
                   </video>
-                  <div className="flex justify-between mt-2">
+                  <div className="flex justify-between mt-2 p-2">
                     <p className="text-black-700 font-medium text-sm lg:text-base">
                       {item.title}
                     </p>
@@ -110,7 +114,7 @@ function Videos() {
                       />
                     </div>
                   </div>
-                  <p className="text-gray-400 opacity-50 text-xs lg:text-sm">
+                  <p className="text-gray-400 opacity-50 text-xs lg:text-sm p-2">
                     {item.date}
                   </p>
                 </div>
